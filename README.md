@@ -1,6 +1,6 @@
 # Capital Group Web Application
 
-Production-style FastAPI application for Capital Group, a construction company operating mainly in France. The app is ready for local development now and structured for later deployment to Azure France Central with Azure SQL Database, VM Scale Sets, Application Gateway WAF, and Azure Storage.
+FastAPI application for Capital Group, a construction company operating mainly in France. The app is ready for local development now and structured for later deployment to Azure France Central with Azure SQL Database, VM Scale Sets, Application Gateway WAF, and Azure Storage.
 
 ## Stack
 
