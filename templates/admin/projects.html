@@ -1,0 +1,9 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<h1>Projects</h1>
+<form method="post" enctype="multipart/form-data" class="form-panel mb-4">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+  <div class="row g-3"><div class="col-md-6"><input class="form-control" name="title" placeholder="Title" required></div><div class="col-md-6"><input class="form-control" name="slug" placeholder="slug" required></div><div class="col-md-6"><input class="form-control" name="location" placeholder="Location" required></div><div class="col-md-6"><select class="form-select" name="service_id"><option value="">Service</option>{% for s in services %}<option value="{{ s.id }}">{{ s.name }}</option>{% endfor %}</select></div><div class="col-md-6"><input class="form-control" name="client_name" placeholder="Client"></div><div class="col-md-3"><input class="form-control" type="number" name="year_completed" placeholder="Year"></div><div class="col-md-3"><input class="form-control" type="file" name="image"></div><div class="col-12"><textarea class="form-control" name="description" placeholder="Description" required></textarea></div><div class="col-12"><button class="btn btn-warning">Create Project</button></div></div>
+</form>
+<div class="table-responsive"><table class="table table-striped"><thead><tr><th>Title</th><th>Location</th><th>Published</th><th>Featured</th></tr></thead><tbody>{% for p in projects %}<tr><td>{{ p.title }}</td><td>{{ p.location }}</td><td>{{ p.is_published }}</td><td>{{ p.is_featured }}</td></tr>{% endfor %}</tbody></table></div>
+{% endblock %}

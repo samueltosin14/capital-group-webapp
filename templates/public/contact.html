@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Contact | Capital Group{% endblock %}
+{% block content %}
+<section class="page-header"><div class="container"><h1>Contact</h1><p>Send an enquiry to the Capital Group team.</p></div></section>
+<section class="py-5"><div class="container"><div class="row g-5">
+  <div class="col-lg-7">
+    {% if request.query_params.get("submitted") %}<div class="alert alert-success">Your enquiry has been received.</div>{% endif %}
+    <form method="post" class="form-panel">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <div class="row g-3">
+        <div class="col-md-6"><label class="form-label">Full name</label><input class="form-control" name="full_name" required></div>
+        <div class="col-md-6"><label class="form-label">Email</label><input class="form-control" type="email" name="email" required></div>
+        <div class="col-md-6"><label class="form-label">Phone</label><input class="form-control" name="phone"></div>
+        <div class="col-md-6"><label class="form-label">City</label><input class="form-control" name="city"></div>
+        <div class="col-12"><label class="form-label">Company</label><input class="form-control" name="company_name"></div>
+        <div class="col-12"><label class="form-label">Subject</label><input class="form-control" name="subject" required></div>
+        <div class="col-12"><label class="form-label">Message</label><textarea class="form-control" name="message" rows="6" required></textarea></div>
+        <div class="col-12"><button class="btn btn-warning btn-lg">Send Enquiry</button></div>
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-5"><h2>Operations</h2><p>Paris planning office with project delivery teams serving Lyon, Bordeaux, Marseille, and wider France.</p><p class="text-muted">contact@capitalgroup.fr<br>+33 1 00 00 00 00</p></div>
+</div></div></section>
+{% endblock %}

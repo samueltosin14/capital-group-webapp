@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Capital Group | Construction in France{% endblock %}
+{% block content %}
+<section class="hero text-white">
+  <div class="container py-5">
+    <div class="row min-vh-75 align-items-center">
+      <div class="col-lg-7">
+        <span class="badge text-bg-warning mb-3">Construction delivery across France</span>
+        <h1 class="display-3 fw-bold">Capital Group</h1>
+        <p class="lead">A construction partner for residential, commercial, renovation, project management, and civil engineering work.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="/quote-request" class="btn btn-warning btn-lg">Request a Quote</a>
+          <a href="/projects" class="btn btn-outline-light btn-lg">View Projects</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-end mb-4">
+      <div class="col"><h2 class="fw-bold">Core Services</h2></div>
+      <div class="col-auto"><a href="/services" class="link-dark">All services</a></div>
+    </div>
+    <div class="row g-4">
+      {% for service in services %}
+      <div class="col-md-6 col-lg-4"><div class="service-card h-100"><h5>{{ service.name }}</h5><p>{{ service.description }}</p></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Featured Projects</h2>
+    <div class="row g-4">
+      {% for project in projects %}
+      <div class="col-md-4"><div class="project-card h-100"><div class="project-thumb"></div><div class="p-4"><h5>{{ project.title }}</h5><p class="text-muted">{{ project.location }} · {{ project.year_completed }}</p><p>{{ project.description }}</p></div></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Client Feedback</h2>
+    <div class="row g-4">
+      {% for item in testimonials %}
+      <div class="col-md-6"><blockquote class="testimonial h-100"><p>{{ item.content }}</p><footer>{{ item.client_name }}{% if item.client_title %}, {{ item.client_title }}{% endif %}</footer></blockquote></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

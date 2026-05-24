@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Services | Capital Group{% endblock %}
+{% block content %}
+<section class="page-header"><div class="container"><h1>Services</h1><p>Construction expertise from early planning to handover.</p></div></section>
+<section class="py-5"><div class="container"><div class="row g-4">
+{% for service in services %}
+  <div class="col-md-6"><div class="service-card h-100"><h3>{{ service.name }}</h3><p>{{ service.description }}</p><a href="/quote-request" class="btn btn-outline-dark">Discuss a project</a></div></div>
+{% endfor %}
+</div></div></section>
+{% endblock %}

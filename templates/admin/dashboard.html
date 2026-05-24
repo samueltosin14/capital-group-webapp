@@ -1,0 +1,6 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+<div class="row g-3 mb-4"><div class="col-md-3"><div class="metric">{{ project_count }}<span>Projects</span></div></div><div class="col-md-3"><div class="metric">{{ customer_count }}<span>Customers</span></div></div></div>
+<div class="row g-4"><div class="col-lg-6"><h2 class="h4">Recent Enquiries</h2><div class="list-group">{% for item in enquiries %}<div class="list-group-item"><strong>{{ item.subject }}</strong><br><small>{{ item.customer.full_name }} · {{ item.status.value }}</small></div>{% endfor %}</div></div><div class="col-lg-6"><h2 class="h4">Recent Quotes</h2><div class="list-group">{% for item in quotes %}<div class="list-group-item"><strong>{{ item.project_location }}</strong><br><small>{{ item.customer.full_name }} · {{ item.status.value }}</small></div>{% endfor %}</div></div></div>
+{% endblock %}

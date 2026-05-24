@@ -1,0 +1,6 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<h1>Testimonials</h1>
+<form method="post" class="form-panel mb-4"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><div class="row g-3"><div class="col-md-5"><input class="form-control" name="client_name" placeholder="Client name" required></div><div class="col-md-5"><input class="form-control" name="client_title" placeholder="Client title"></div><div class="col-md-2"><input class="form-control" type="number" min="1" max="5" name="rating" value="5"></div><div class="col-12"><textarea class="form-control" name="content" required></textarea></div><div class="col-12"><button class="btn btn-warning">Add Testimonial</button></div></div></form>
+<div class="row g-3">{% for t in testimonials %}<div class="col-md-6"><div class="service-card"><strong>{{ t.client_name }}</strong><p>{{ t.content }}</p></div></div>{% endfor %}</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Admin Login | Capital Group{% endblock %}
+{% block content %}
+<section class="py-5"><div class="container narrow">
+  <h1 class="mb-4">Admin Login</h1>
+  {% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+  <form method="post" class="form-panel">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <label class="form-label">Email</label><input class="form-control mb-3" type="email" name="email" required>
+    <label class="form-label">Password</label><input class="form-control mb-3" type="password" name="password" required>
+    <button class="btn btn-warning">Sign in</button>
+  </form>
+</div></section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Quote Request | Capital Group{% endblock %}
+{% block content %}
+<section class="page-header"><div class="container"><h1>Quote Request</h1><p>Share project requirements and supporting documents.</p></div></section>
+<section class="py-5"><div class="container">
+{% if request.query_params.get("submitted") %}<div class="alert alert-success">Your quote request has been received.</div>{% endif %}
+<form method="post" enctype="multipart/form-data" class="form-panel">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+  <div class="row g-3">
+    <div class="col-md-6"><label class="form-label">Full name</label><input class="form-control" name="full_name" required></div>
+    <div class="col-md-6"><label class="form-label">Email</label><input class="form-control" type="email" name="email" required></div>
+    <div class="col-md-4"><label class="form-label">Phone</label><input class="form-control" name="phone"></div>
+    <div class="col-md-4"><label class="form-label">Company</label><input class="form-control" name="company_name"></div>
+    <div class="col-md-4"><label class="form-label">City</label><input class="form-control" name="city"></div>
+    <div class="col-md-6"><label class="form-label">Service</label><select class="form-select" name="service_id"><option value="">Select service</option>{% for service in services %}<option value="{{ service.id }}">{{ service.name }}</option>{% endfor %}</select></div>
+    <div class="col-md-6"><label class="form-label">Project location</label><input class="form-control" name="project_location" required></div>
+    <div class="col-md-6"><label class="form-label">Budget range</label><input class="form-control" name="budget_range" placeholder="EUR 250k - 500k"></div>
+    <div class="col-md-6"><label class="form-label">Desired start</label><input class="form-control" name="desired_start_date" placeholder="Q4 2026"></div>
+    <div class="col-12"><label class="form-label">Project details</label><textarea class="form-control" name="details" rows="7" required></textarea></div>
+    <div class="col-12"><label class="form-label">Supporting document or image</label><input class="form-control" type="file" name="document" accept=".jpg,.jpeg,.png,.webp,.pdf"></div>
+    <div class="col-12"><button class="btn btn-warning btn-lg">Submit Request</button></div>
+  </div>
+</form>
+</div></section>
+{% endblock %}
