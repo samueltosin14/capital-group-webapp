@@ -30,3 +30,16 @@ module "azure_sql" {
   sql_admin_password         = var.sql_admin_password
   tags                       = var.tags
 }
+
+module "keyvault" {
+  source = "../../modules/keyvault"
+
+  resource_group_name = azurerm_resource_group.main.name
+  location            = var.location
+  project_name        = var.project_name
+  environment         = var.environment
+  tenant_id           = var.tenant_id
+  sql_admin_username  = var.sql_admin_username
+  sql_admin_password  = var.sql_admin_password
+  tags                = var.tags
+}

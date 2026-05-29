@@ -31,3 +31,4 @@ tags = {
 
 sql_admin_username = "sqladminuser"
 sql_admin_password = "WeaponExplain26!"
+tenant_id          = "366e7d80-6d89-47d4-9040-2f78cb2e9bc5"

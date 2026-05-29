@@ -73,8 +73,9 @@ resource "azurerm_subnet_network_security_group_association" "private_endpoints"
   subnet_id                 = azurerm_subnet.main["snet-private-endpoints"].id
   network_security_group_id = azurerm_network_security_group.private_endpoints.id
 }
-
+/*
 resource "azurerm_subnet_network_security_group_association" "bastion" {
   subnet_id                 = azurerm_subnet.main["AzureBastionSubnet"].id
   network_security_group_id = azurerm_network_security_group.bastion.id
 }
+*/
